@@ -7,6 +7,8 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://e-commerce-w4cf.onrender.com",
+        changeOrigin: true,
+        secure: false,
       },
     },
   },
