@@ -8,6 +8,8 @@ export const verifyJWT = asyncHandler(async (req, res, next) => {
       req.cookies?.accessToken ||
       req.header("Authorization")?.replace("Bearer ", "");
 
+    console.log(token);
+
     if (!token) {
       res.status(401);
       throw new Error("Not authorized, no token");
