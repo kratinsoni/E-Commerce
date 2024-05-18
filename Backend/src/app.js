@@ -8,6 +8,7 @@ app.use(
   cors({
     origin: process.env.CORS_ORIGIN, //by changing CORS_ORIGIN we can control which IPs are allowed and blocked
     credentials: true,
+    withCredentials: true,
   })
 );
 app.use(express.json({ limit: "16kb" }));
