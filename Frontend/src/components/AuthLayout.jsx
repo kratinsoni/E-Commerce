@@ -26,8 +26,8 @@ function AuthLayout({ children }) {
   return authStatus ? (
     <div>{children}</div>
   ) : (
-    <div>
-      Not Authorized
+    <div className="flex w-screen justify-center items-center ">
+      <div className="text-2xl">Not Authorized</div>
       <button
         className="bg-blue-500 mx-8 rounded-xl text-white text-xl px-2 py-3"
         onClick={() => Navigate("/login")}
