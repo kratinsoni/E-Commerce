@@ -22,6 +22,7 @@ const Login = () => {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/users/login/`, {
         method: "PATCH",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },

@@ -11,7 +11,13 @@ function HomePage() {
 
   const handleCartItems = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/v1/products/get-cart-products`);
+      const response = await fetch(
+        `${BASE_URL}/api/v1/products/get-cart-products`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const data = await response.json();
       console.log(data);
       Navigate("/cart");

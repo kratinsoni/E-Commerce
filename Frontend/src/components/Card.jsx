@@ -15,6 +15,7 @@ const Card = ({
     try {
       const response = await fetch(`${BASE_URL}/api/v1/products/add-to-cart`, {
         method: "PATCH",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },

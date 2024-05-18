@@ -10,6 +10,7 @@ function AuthLayout({ children }) {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/users/getCurrentUser`, {
         method: "GET",
+        credentials: "include",
       });
       const parseRes = await response.json();
       console.log(parseRes);

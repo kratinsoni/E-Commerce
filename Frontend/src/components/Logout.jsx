@@ -6,6 +6,7 @@ const Logout = () => {
     // Add your logout logic here
     await fetch(`${BASE_URL}/api/v1/users/logout`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
