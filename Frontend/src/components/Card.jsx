@@ -16,6 +16,7 @@ const Card = ({
       const response = await fetch(`${BASE_URL}/api/v1/products/add-to-cart`, {
         method: "PATCH",
         credentials: "include",
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
@@ -32,6 +33,7 @@ const Card = ({
     try {
       const response = await fetch(`${BASE_URL}/api/v1/products/remove-from-cart`, {
         method: "PATCH",
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },

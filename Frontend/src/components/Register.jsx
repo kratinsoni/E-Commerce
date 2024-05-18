@@ -24,6 +24,7 @@ const Register = () => {
       const response = await fetch(`${BASE_URL}/api/v1/users/register`, {
         method: "POST",
         credentials: "include",
+        withCredentials: true,
         body: formData,
       });
 

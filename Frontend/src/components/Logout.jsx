@@ -7,6 +7,7 @@ const Logout = () => {
     await fetch(`${BASE_URL}/api/v1/users/logout`, {
       method: "POST",
       credentials: "include",
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },

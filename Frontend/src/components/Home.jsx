@@ -16,6 +16,7 @@ function HomePage() {
         {
           method: "GET",
           credentials: "include",
+          withCredentials: true,
         }
       );
       const data = await response.json();

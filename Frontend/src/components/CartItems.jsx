@@ -10,6 +10,7 @@ const CartItems = () => {
       const response = await fetch(`${BASE_URL}/api/v1/products/get-cart-products`, {
         method: "GET",
         credentials: "include",
+        withCredentials: true,
       });
       const data = await response.json();
       console.log(data);
