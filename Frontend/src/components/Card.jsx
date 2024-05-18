@@ -15,10 +15,11 @@ const Card = ({
     try {
       const response = await fetch(`${BASE_URL}/api/v1/products/add-to-cart`, {
         method: "PATCH",
-        credentials: "include",
+        credentials: "same-origin",
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("accessToken"),
         },
         body: JSON.stringify({ productId: id }),
       });
@@ -31,14 +32,20 @@ const Card = ({
 
   const handleRemove = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/v1/products/remove-from-cart`, {
-        method: "PATCH",
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productId: id }),
-      });
+      const response = await fetch(
+        `${BASE_URL}/api/v1/products/remove-from-cart`,
+        {
+          method: "PATCH",
+          credentials: "same-origin",
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+  
+          },
+          body: JSON.stringify({ productId: id }),
+        }
+      );
       const data = await response.json();
       console.log(data);
     } catch (error) {

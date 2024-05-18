@@ -10,8 +10,11 @@ function AuthLayout({ children }) {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/users/getCurrentUser`, {
         method: "GET",
-        credentials: "include",
+        credentials: "same-origin",
         withCredentials: true,
+        headers: {
+          "Authorization": "Bearer " + localStorage.getItem("accessToken"),
+        },
       });
       const parseRes = await response.json();
       console.log(parseRes);

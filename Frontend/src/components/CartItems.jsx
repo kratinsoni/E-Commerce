@@ -7,11 +7,17 @@ const CartItems = () => {
 
   const getCartItems = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/v1/products/get-cart-products`, {
-        method: "GET",
-        credentials: "include",
-        withCredentials: true,
-      });
+      const response = await fetch(
+        `${BASE_URL}/api/v1/products/get-cart-products`,
+        {
+          method: "GET",
+          credentials: "same-origin",
+          withCredentials: true,
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+        }
+      );
       const data = await response.json();
       console.log(data);
       setCartItems(data);

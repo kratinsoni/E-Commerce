@@ -23,8 +23,11 @@ const Register = () => {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/users/register`, {
         method: "POST",
-        credentials: "include",
+        credentials: "same-origin",
         withCredentials: true,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("accessToken"),
+        },
         body: formData,
       });
 

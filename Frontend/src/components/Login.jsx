@@ -22,10 +22,12 @@ const Login = () => {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/users/login/`, {
         method: "PATCH",
-        credentials: "include",
+        credentials: "same-origin",
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          
         },
         body: JSON.stringify({
           email,
@@ -36,7 +38,7 @@ const Login = () => {
       const parseRes = await response.json();
       console.log(parseRes);
 
-      window.localStorage.setItem("token", parseRes.accessToken);
+      window.localStorage.setItem("accessToken", parseRes.accessToken);
 
       navigate("/");
     } catch (error) {

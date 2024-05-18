@@ -6,10 +6,12 @@ const Logout = () => {
     // Add your logout logic here
     await fetch(`${BASE_URL}/api/v1/users/logout`, {
       method: "POST",
-      credentials: "include",
+      credentials: "same-origin",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("accessToken"),
+        
       },
     })
       .then((response) => response.json())

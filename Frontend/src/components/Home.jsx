@@ -15,8 +15,11 @@ function HomePage() {
         `${BASE_URL}/api/v1/products/get-cart-products`,
         {
           method: "GET",
-          credentials: "include",
+          credentials: "same-origin",
           withCredentials: true,
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
         }
       );
       const data = await response.json();
@@ -29,7 +32,14 @@ function HomePage() {
 
   const getProducts = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/v1/products/get-products`);
+      const response = await fetch(`${BASE_URL}/api/v1/products/get-products`, {
+        method: "GET",
+        credentials: "same-origin",
+        withCredentials: true,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("accessToken"),
+        },
+      });
       const data = await response.json();
       console.log(data);
       setProducts(data);
