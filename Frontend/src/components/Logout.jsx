@@ -1,9 +1,10 @@
 import React from "react";
+import { BASE_URL } from "../constants.js";
 
 const Logout = () => {
   const handleLogout = async () => {
     // Add your logout logic here
-    await fetch("/api/v1/users/logout", {
+    await fetch(`${BASE_URL}/api/v1/users/logout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Card.css";
+import { BASE_URL } from "../constants.js";
 
 const Card = ({
   id,
@@ -12,7 +13,7 @@ const Card = ({
 }) => {
   const handleCart = async () => {
     try {
-      const response = await fetch("/api/v1/products/add-to-cart", {
+      const response = await fetch(`${BASE_URL}/api/v1/products/add-to-cart`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +29,7 @@ const Card = ({
 
   const handleRemove = async () => {
     try {
-      const response = await fetch("/api/v1/products/remove-from-cart", {
+      const response = await fetch(`${BASE_URL}/api/v1/products/remove-from-cart`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

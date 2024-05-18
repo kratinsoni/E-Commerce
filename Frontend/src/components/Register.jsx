@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants.js";
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -20,7 +21,7 @@ const Register = () => {
     formData.append("password", password);
 
     try {
-      const response = await fetch("/api/v1/users/register", {
+      const response = await fetch(`${BASE_URL}/api/v1/users/register`, {
         method: "POST",
         body: formData,
       });

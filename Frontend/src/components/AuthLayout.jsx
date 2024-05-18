@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants.js";
 
 function AuthLayout({ children }) {
   const [authStatus, setAuthStatus] = useState(false);
@@ -7,7 +8,7 @@ function AuthLayout({ children }) {
 
   const getUser = async () => {
     try {
-      const response = await fetch("/api/v1/users/getCurrentUser", {
+      const response = await fetch(`${BASE_URL}/api/v1/users/getCurrentUser`, {
         method: "GET",
       });
       const parseRes = await response.json();

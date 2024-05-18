@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import { BASE_URL } from "../constants.js";
 
 const CartItems = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const getCartItems = async () => {
     try {
-      const response = await fetch("/api/v1/products/get-cart-products");
+      const response = await fetch(`${BASE_URL}/api/v1/products/get-cart-products`);
       const data = await response.json();
       console.log(data);
       setCartItems(data);

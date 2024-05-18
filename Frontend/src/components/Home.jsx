@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useNavigate } from "react-router-dom";
 import Logout from "./Logout";
+import { BASE_URL } from "../constants.js";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ function HomePage() {
 
   const handleCartItems = async () => {
     try {
-      const response = await fetch("/api/v1/products/get-cart-products");
+      const response = await fetch(`${BASE_URL}/api/v1/products/get-cart-products`);
       const data = await response.json();
       console.log(data);
       Navigate("/cart");
@@ -21,7 +22,7 @@ function HomePage() {
 
   const getProducts = async () => {
     try {
-      const response = await fetch("/api/v1/products/get-products");
+      const response = await fetch(`${BASE_URL}/api/v1/products/get-products`);
       const data = await response.json();
       console.log(data);
       setProducts(data);

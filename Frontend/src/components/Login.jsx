@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const Login = () => {
     // Add your login logic here
 
     try {
-      const response = await fetch("/api/v1/users/login/", {
+      const response = await fetch(`${BASE_URL}/api/v1/users/login/`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
